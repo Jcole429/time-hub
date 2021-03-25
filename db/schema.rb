@@ -10,18 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_124927) do
+ActiveRecord::Schema.define(version: 2021_03_25_192523) do
 
-  create_table "projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "entries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "project_id"
     t.date "date"
-    t.string "client"
-    t.string "project"
-    t.string "project_code"
     t.decimal "hours", precision: 10, scale: 2
     t.boolean "billable"
     t.string "first_name"
     t.string "last_name"
     t.integer "billable_rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "project_code"
+    t.string "client"
+    t.string "project"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
