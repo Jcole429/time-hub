@@ -17,7 +17,7 @@ csv.each do |row|
     t.project = row["Project"]
     t.project_code = row["Project Code"]
     t.hours = row["Hours"]
-    t.billable = row["Billable?"]
+    t.billable = row["Billable?"] == "Yes" ? 1 : 0
     t.first_name = row["First Name"]
     t.last_name = row["Last Name"]
     t.billable_rate = row["Billable Rate"]
