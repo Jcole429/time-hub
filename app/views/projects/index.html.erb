@@ -9,7 +9,7 @@
         <div class="col text-end">
             <H6 class="" style="padding-right: 2rem;">Billable Amount</H6>
             <h2>
-                <%= number_to_currency(get_total_billable_amount()) %>
+                <%= number_to_currency(get_total_billable_amount(@projects)) %>
             </h2>
         </div>
     </div>
@@ -18,11 +18,11 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Client</th>
-                        <th>Hours</th>
-                        <th>Billable Hours</th>
-                        <th>Billable Amount</th>
+                        <th style="background-color:lightgray">Name</th>
+                        <th style="background-color:lightgray">Client</th>
+                        <th class="text-end" style="background-color:lightgray">Hours</th>
+                        <th class="text-end" style="background-color:lightgray">Billable Hours</th>
+                        <th class="text-end" style="background-color:lightgray">Billable Amount</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,14 +34,18 @@
                             <td>
                                 <%= project.client %>
                             </td>
-                            <td>
+                            <td class="text-end">
                                 <%= project.hours %>
                             </td>
-                            <td>
-                                <%= get_billable_hours(project) %>
+                            <td class="text-end">
+                                <%= "#{project.billable_hours} (#{(project.billable_hours / project.hours * 100).round(2)}%)" %>
                             </td>
-                            <td>
-                                <%= number_to_currency(get_billable_amount(project)) %>
+                            <td class="text-end">
+                                <% if project.billable_amount != 0 %>
+                                    <%= number_to_currency(project.billable_amount) %>
+                                        <% else %>
+                                            <div class="">-</div>
+                                            <% end %>
                             </td>
                         </tr>
                         <% end %>
