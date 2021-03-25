@@ -5,7 +5,7 @@ class CreateProjects < ActiveRecord::Migration[6.1]
       t.string :client
       t.string :project
       t.string :project_code
-      t.decimal :hours
+      t.decimal :hours, precision: 10, scale: 2
       t.boolean :billable
       t.string :first_name
       t.string :last_name

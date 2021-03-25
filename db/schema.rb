@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2021_03_25_124927) do
 
-  create_table "projects", force: :cascade do |t|
+  create_table "projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "date"
     t.string "client"
     t.string "project"
     t.string "project_code"
-    t.decimal "hours"
+    t.decimal "hours", precision: 10, scale: 2
     t.boolean "billable"
     t.string "first_name"
     t.string "last_name"
