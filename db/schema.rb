@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_03_25_124927) do
 
   create_table "projects", force: :cascade do |t|
-    t.date "name"
+    t.date "date"
     t.string "client"
     t.string "project"
     t.string "project_code"
