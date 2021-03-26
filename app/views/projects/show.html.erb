@@ -22,7 +22,7 @@
                     <th style="background-color:lightgray">Billable</th>
                     <th style="background-color:lightgray">First Name</th>
                     <th style="background-color:lightgray">Last Name</th>
-                    <th style="background-color:lightgray">Billable Rate</th>
+                    <th class="text-end" style="background-color:lightgray">Billable Rate</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,8 +46,8 @@
                         <td>
                             <%= entry.last_name %>
                         </td>
-                        <td>
-                            <%= entry.billable_rate %>
+                        <td class="text-end">
+                            <%= number_to_currency(entry.billable_rate) %>
                         </td>
                     </tr>
                     <% end %>
