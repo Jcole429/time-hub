@@ -19,6 +19,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @entries = Entry.all().where(project_id: @project.id)
+    puts @entries
   end
 
   private

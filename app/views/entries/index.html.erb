@@ -9,7 +9,7 @@
             <thead>
                 <tr>
                     <th style="background-color:lightgray">Date</th>
-                    <th style="background-color:lightgray">Project Id</th>
+                    <th style="background-color:lightgray">Project Code</th>
                     <th class="text-end" style="background-color:lightgray">Hours</th>
                     <th style="background-color:lightgray">Billable</th>
                     <th style="background-color:lightgray">First Name</th>
@@ -24,7 +24,7 @@
                             <%= entry.date %>
                         </td>
                         <td>
-                            <%= entry.project_id %>
+                            <%= Project.find(entry.project_id).project_code %>
                         </td>
                         <td class="text-end">
                             <%= entry.hours %>

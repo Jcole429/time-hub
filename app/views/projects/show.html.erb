@@ -11,3 +11,47 @@
         </h5>
     </div>
 </div>
+<div class="row">
+    <div class="col">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="background-color:lightgray">Date</th>
+                    <th style="background-color:lightgray">Project Code</th>
+                    <th class="text-end" style="background-color:lightgray">Hours</th>
+                    <th style="background-color:lightgray">Billable</th>
+                    <th style="background-color:lightgray">First Name</th>
+                    <th style="background-color:lightgray">Last Name</th>
+                    <th style="background-color:lightgray">Billable Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @entries.each do |entry| %>
+                    <tr>
+                        <td>
+                            <%= entry.date %>
+                        </td>
+                        <td>
+                            <%= Project.find(entry.project_id).project_code %>
+                        </td>
+                        <td class="text-end">
+                            <%= entry.hours %>
+                        </td>
+                        <td>
+                            <%= entry.billable %>
+                        </td>
+                        <td>
+                            <%= entry.first_name %>
+                        </td>
+                        <td>
+                            <%= entry.last_name %>
+                        </td>
+                        <td>
+                            <%= entry.billable_rate %>
+                        </td>
+                    </tr>
+                    <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
