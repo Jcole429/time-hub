@@ -1,35 +1,33 @@
-<div class="container mt-5">
-    <div class="row">
-        <div class="col">
-            <%= link_to '<button type="button" class="btn btn-primary">Add Project</button>'.html_safe, new_project_path %>
-        </div>
+<div class="row">
+    <div class="col">
+        <%= link_to '<button type="button" class="btn btn-primary">Add Project</button>'.html_safe, new_project_path %>
     </div>
-    <div class="row">
-        <div class="col">
-            <table class="table table-bordered">
-                <thead>
+</div>
+<div class="row">
+    <div class="col">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="background-color:lightgray">Name</th>
+                    <th style="background-color:lightgray">Client</th>
+                    <th class="text-end" style="background-color:lightgray">Project Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @projects.each do |project| %>
                     <tr>
-                        <th style="background-color:lightgray">Name</th>
-                        <th style="background-color:lightgray">Client</th>
-                        <th class="text-end" style="background-color:lightgray">Project Code</th>
+                        <td>
+                            <%= link_to project.project, project_path(project) %>
+                        </td>
+                        <td>
+                            <%= link_to project.client, project_path(project) %>
+                        </td>
+                        <td class="text-end">
+                            <%= project.project_code %>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <% @projects.each do |project| %>
-                        <tr>
-                            <td>
-                                <%= link_to project.project, project_path(project) %>
-                            </td>
-                            <td>
-                                <%= link_to project.client, project_path(project) %>
-                            </td>
-                            <td class="text-end">
-                                <%= project.project_code %>
-                            </td>
-                        </tr>
-                        <% end %>
-                </tbody>
-            </table>
-        </div>
+                    <% end %>
+            </tbody>
+        </table>
     </div>
 </div>
