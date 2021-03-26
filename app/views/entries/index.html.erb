@@ -24,7 +24,7 @@
                             <%= entry.date %>
                         </td>
                         <td>
-                            <%= Project.find(entry.project_id).project_code %>
+                            <%= link_to Project.find(entry.project_id).project_code, project_path(Project.find(entry.project_id)) %>
                         </td>
                         <td class="text-end">
                             <%= entry.hours %>
