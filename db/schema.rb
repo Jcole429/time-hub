@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_03_25_192523) do
 
   create_table "entries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "project_id"
+    t.bigint "project_id"
     t.date "date"
     t.decimal "hours", precision: 10, scale: 2
     t.boolean "billable"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_03_25_192523) do
     t.integer "billable_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_entries_on_project_id"
   end
 
   create_table "projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -32,4 +33,5 @@ ActiveRecord::Schema.define(version: 2021_03_25_192523) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "entries", "projects"
 end

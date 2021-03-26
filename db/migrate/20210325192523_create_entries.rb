@@ -1,7 +1,7 @@
 class CreateEntries < ActiveRecord::Migration[6.1]
   def change
     create_table :entries do |t|
-      t.string :project_id
+      t.belongs_to :project, foreign_key: true
       t.date :date
       t.decimal :hours, precision: 10, scale: 2
       t.boolean :billable
