@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h6>Hours Tracked</h6>
+            <h2>
+                <%= get_total_hours_tracked(@projects) %>
+            </h2>
+        </div>
+        <div class="col text-end">
+            <H6 class="" style="padding-right: 2rem;">Billable Amount</H6>
+            <h2>
+                <%= number_to_currency(get_total_billable_amount(@projects)) %>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="background-color:lightgray">Name</th>
+                        <th style="background-color:lightgray">Client</th>
+                        <th class="text-end" style="background-color:lightgray">Hours</th>
+                        <th class="text-end" style="background-color:lightgray">Billable Hours</th>
+                        <th class="text-end" style="background-color:lightgray">Billable Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @projects.each do |project| %>
+                        <tr>
+                            <td>
+                                <%= project.name %>
+                            </td>
+                            <td>
+                                <%= project.client %>
+                            </td>
+                            <td class="text-end">
+                                <%= project.hours %>
+                            </td>
+                            <td class="text-end">
+                                <%= "#{project.billable_hours} (#{(project.billable_hours / project.hours * 100).round(2)}%)" %>
+                            </td>
+                            <td class="text-end">
+                                <%= number_to_currency(project.billable_amount) %>
+                            </td>
+
+                        </tr>
+                        <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
