@@ -34,7 +34,7 @@
                             <%= link_to project.client, project_path(project) %>
                         </td>
                         <td class="text-end">
-                            <%= project.hours %>
+                            <%= link_to project.hours, project_path(project) %>
                         </td>
                         <td class="text-end">
                             <%= "#{project.billable_hours} (#{(project.billable_hours / project.hours * 100).round(2)}%)" %>
