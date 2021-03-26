@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "projects#index"
+  root "summary#index"
 
   resources :projects
   resources :entries
