@@ -20,6 +20,7 @@ class EntriesController < ApplicationController
 
     def show
         @entry = Entry.find(params[:id])
+        @project = Project.find(@entry.project_id)
     end
 
     private
