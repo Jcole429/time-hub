@@ -9,7 +9,6 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(post_params)
-    puts @project
     if @project.save
       redirect_to @project
     else
@@ -19,8 +18,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @entries = Entry.all().where(project_id: @project.id)
-    puts @entries
+    @entries = Entry.all().where(project_id: @project.id).joins(:project)
   end
 
   private

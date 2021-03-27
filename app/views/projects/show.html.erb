@@ -32,7 +32,7 @@
                             <%= entry.date %>
                         </td>
                         <td>
-                            <%= Project.find(entry.project_id).project_code %>
+                            <%= entry.project.project_code %>
                         </td>
                         <td class="text-end">
                             <%= entry.hours %>
