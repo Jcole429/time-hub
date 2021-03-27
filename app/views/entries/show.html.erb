@@ -1,20 +1,28 @@
-<div class="container mt-5">
-    <div class="row">
-        <div class="col">
-            <%= link_to "Back", entries_path %>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <h5>
-                <%= "Project: #{@entry.date}" %>
-            </h5>
-            <h5>
-                <%= "Client: #{@entry.first_name}" %>
-            </h5>
-            <h5>
-                <%= "Project Code: #{@entry.project_id}" %>
-            </h5>
-        </div>
+<div class="row">
+    <div class="col">
+        <h5>
+            <%= "Date: #{@entry.date}" %>
+        </h5>
+        <h5>
+            <%= "Project: #{@project.project}" %>
+        </h5>
+        <h5>
+            <%= "Project Code: #{@project.project_code}" %>
+        </h5>
+        <h5>
+            <%= "First Name: #{@entry.first_name}" %>
+        </h5>
+        <h5>
+            <%= "Last Name: #{@entry.last_name}" %>
+        </h5>
+        <h5>
+            <%= "Hours: #{@entry.hours}" %>
+        </h5>
+        <h5>
+            <%= "Billable?: #{@entry.billable}" %>
+        </h5>
+        <h5>
+            <%= "Billable Rate: #{number_to_currency(@entry.billable_rate)}" %>
+        </h5>
     </div>
 </div>
