@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby Version
+You will need to have Ruby 2.7.2 running on your machine.
 
-Things you may want to cover:
+To install RVM (Ruby Version Manager) run: ```\curl -sSL https://get.rvm.io | bash -s stable```
 
-* Ruby version
+To install Ruby 2.7.2 run: ```rvm install 2.7.2```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+postgres -D /usr/local/var/postgres
+bundle update
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
