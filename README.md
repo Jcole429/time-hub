@@ -71,7 +71,7 @@ ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-darwin20]
 
 # Running the time-hub app locally
 
-1. Populate ```app/config/database.yml``` file with your postgres username and password.
+1. Populate ```time-hub/config/database.yml``` file with your postgres username and password.
 ```
 default: &default
   adapter: postgresql
