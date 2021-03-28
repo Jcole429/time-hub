@@ -2,7 +2,7 @@
 <%= form_with model: @entry do |form| %>
     <div>
         <%= form.label :project_id %><br>
-        <%= form.collection_select :project_id, Project.order(:project_code), :id, :project_code, include_blank: true %>
+        <%= form.collection_select :project_id, Project.order(:project_code), :id, :project_code_with_name, include_blank: true %>
         <%= content_tag :span, @entry.errors[:project_id], class: "error" if @entry.errors[:project_id].present? %>
     </div>
     <div>
