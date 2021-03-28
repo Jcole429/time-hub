@@ -12,7 +12,6 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'GM_Coding_Exercise_Sample_
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
     t = Project.new
-    t.id = row["id"]
     t.project_code = row["Project Code"]
     t.client = row["Client"]
     t.project = row["Project"]
