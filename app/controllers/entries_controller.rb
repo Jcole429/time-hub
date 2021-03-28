@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
     def index
-        @entries = Entry.all().order(:date).joins(:project)
+        @entries = Entry.all().order(:date).reverse_order.joins(:project)
     end
 
     def new

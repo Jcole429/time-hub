@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @entries = Entry.all().where(project_id: @project.id).joins(:project)
+    @entries = Entry.all().where(project_id: @project.id).joins(:project).order(:date).reverse_order
   end
 
   private
