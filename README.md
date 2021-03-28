@@ -33,7 +33,7 @@ You will need to have Ruby 2.7.2 running on your machine.
 It is recommended to use RVM (Ruby Version Manager) to manage multiple versions of Ruby on your machine and simplify the installation process.
 
 ### Note for windows users:
-RVM support for mingw is not implemented yet. Follow instructions for Ruby+Devkit 2.7 at: [https://rubyinstaller.org/downloads](https://rubyinstaller.org/downloads) 
+RVM support for mingw is not implemented yet. Follow instructions for Ruby+Devkit 2.7.2 at: [https://rubyinstaller.org/downloads](https://rubyinstaller.org/downloads) 
 
 ### Installing RVM (Recommended):
 Full instructions here: [https://rvm.io/rvm/install](https://rvm.io/rvm/install)
