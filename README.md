@@ -3,11 +3,15 @@
 # Live App
 To see a live version of this web app deployed on Heroku visit:
 [gm-time-hub.herokuapp.com](https://gm-time-hub.herokuapp.com/)
+# General
+* **Build Enviornment**: macOS Big Sur
+* **Database**: Postgres
+* **Framework**: Ruby on Rails
 
 # Dependencies
 * Git (Recommended)
 * Ruby 2.7.2
-* Rails Gem
+* PostgreSQL 13.2
 
 ## Git (Recommended)
 Having git will make downloading the project much easier.
@@ -61,34 +65,27 @@ ruby --version
 ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-darwin20]
 ```
 
-## Installing Rails Gem
-To install the rails gem run:
+## PostgreSQL 13.2
+* You can download PostgresSQL 13.2 from [https://www.enterprisedb.com/downloads/postgres-postgresql-downloads](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
+* Make sure the /bin directory is added to your PATH enviornment variable
+
+# Running the time-hub app locally
+
+1. Populate ```app/config/database.yml``` file with your postgres username and password.
 ```
-gem update
-gem install rails
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: [your_username]
+  password: [your_password]
 ```
-Verify the rails gem was installed:
-```
-rails -v
-Rails 6.1.3.1
-```
 
-# Running the time-hub app
-
-1. Navigate to the project directory
-2. Update the bundler: ```bundle update```
-2. Install project dependencies: ```bundle install```
-3. Create the postgres database: ```rake db:create```
-4. Run migrations to create the tables: ```rake db:migrate```
-5. Seed the tables with inital data: ```rake db:seed```
-3. Start the rails server: ```rails s```
-4. 
-
-
-
-postgres -D /usr/local/var/postgres
-bundle update
-bundle install
-rails db:create
-rails db:migrate
-rails db:seed
+2. Navigate to the project directory
+3. Install correct bundler version: ```gem install bundler:2.2.15```
+4. Update the bundler: ```bundle update```
+5. Install project dependencies: ```bundle install```
+6. Create the postgres database: ```rake db:create```
+7. Run migrations to create the tables: ```rake db:migrate```
+8. Seed the tables with inital data: ```rake db:seed```
+9. Start the rails server: ```rails s```
