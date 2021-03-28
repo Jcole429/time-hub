@@ -89,3 +89,4 @@ default: &default
 7. Run migrations to create the tables: ```rake db:migrate```
 8. Seed the tables with inital data: ```rake db:seed```
 9. Start the rails server: ```rails s```
+10. The app is now running! Navigate to [https://localhost:3000](https://localhost:3000) to see it!
