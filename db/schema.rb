@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2021_03_25_192523) do
 
-  create_table "entries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "entries", force: :cascade do |t|
     t.bigint "project_id"
     t.date "date"
     t.decimal "hours", precision: 10, scale: 2
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_03_25_192523) do
     t.index ["project_id"], name: "index_entries_on_project_id"
   end
 
-  create_table "projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "projects", force: :cascade do |t|
     t.string "project_code"
     t.string "client"
     t.string "project"
