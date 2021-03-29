@@ -19,19 +19,26 @@ csv.each do |row|
     puts "#{t.id}, #{t.project_code}, #{t.client}, #{t.project} saved"
 end
 
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'GM_Coding_Exercise_Sample_Data_Employees.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+    t = Employee.new
+    t.first_name = row["First Name"]
+    t.last_name = row["Last Name"]
+    t.save
+    puts "#{t.id}, #{t.first_name}, #{t.last_name} saved"
+end
+
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'GM_Coding_Exercise_Sample_Data_Entries.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
     t = Entry.new
-    t.id = row["id"]
     t.date = Date.strptime(row["Date"], '%m/%d/%y')
     t.project_id = row["project_id"]
+    t.employee_id = row["employee_id"]
     t.hours = row["Hours"]
     t.billable = row["Billable?"] == "Yes" ? 1 : 0
-    t.first_name = row["First Name"]
-    t.last_name = row["Last Name"]
     t.billable_rate = row["Billable Rate"]
     t.save
-    puts "#{t.id}, #{t.date}, #{t.project_id}, #{t.hours}, " +
-         "#{t.billable}, #{t.first_name}, #{t.last_name}, #{t.billable_rate} saved"
+    puts "#{t.id}, #{t.date}, #{t.project_id}, #{t.hours}, #{t.billable}, #{t.billable_rate} saved"
 end
