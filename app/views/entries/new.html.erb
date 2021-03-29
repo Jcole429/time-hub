@@ -21,14 +21,9 @@
         <%= content_tag :span, @entry.errors[:billable], class: "error" if @entry.errors[:billable].present? %>
     </div>
     <div>
-        <%= form.label :first_name %><br>
-        <%= form.text_field :first_name %>
-        <%= content_tag :span, @entry.errors[:first_name], class: "error" if @entry.errors[:first_name].present? %>
-    </div>
-    <div>
-        <%= form.label :last_name %><br>
-        <%= form.text_field :last_name %>
-        <%= content_tag :span, @entry.errors[:last_name], class: "error" if @entry.errors[:last_name].present? %>
+        <%= form.label :employee_id %><br>
+        <%= form.collection_select :employee_id, Employee.order(:last_name), :id, :last_name_first_name, include_blank: true %>
+        <%= content_tag :span, @entry.errors[:employee_id], class: "error" if @entry.errors[:employee_id].present? %>
     </div>
     <div>
         <%= form.label :billable_rate %><br>

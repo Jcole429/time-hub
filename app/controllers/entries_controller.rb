@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
     def index
-        @entries = Entry.all().order(:date).reverse_order.joins(:project)
+        @entries = Entry.all().order(:date).reverse_order.joins(:project).joins(:employee)
     end
 
     def new
@@ -19,12 +19,11 @@ class EntriesController < ApplicationController
 
 
     def show
-        @entry = Entry.find(params[:id])
-        @project = Project.find(@entry.project_id)
+        @entry = Entry.joins(:project).joins(:employee).find(params[:id])
     end
 
     private
     def post_params
-        params.require(:entry).permit(:id, :project_id, :date, :hours, :billable, :first_name, :last_name, :billable_rate)
+        params.require(:entry).permit(:id, :project_id, :employee_id, :date, :hours, :billable, :billable_rate)
     end
 end

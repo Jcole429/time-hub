@@ -4,16 +4,16 @@
             <%= "Date: #{@entry.date}" %>
         </h5>
         <h5>
-            <%= "Project: #{@project.project}" %>
+            <%= "Project: #{@entry.project.project}" %>
         </h5>
         <h5>
-            <%= "Project Code: #{@project.project_code}" %>
+            <%= "Project Code: #{@entry.project.project_code}" %>
         </h5>
         <h5>
-            <%= "First Name: #{@entry.first_name}" %>
+            <%= "First Name: #{@entry.employee.first_name}" %>
         </h5>
         <h5>
-            <%= "Last Name: #{@entry.last_name}" %>
+            <%= "Last Name: #{@entry.employee.last_name}" %>
         </h5>
         <h5>
             <%= "Hours: #{@entry.hours}" %>
