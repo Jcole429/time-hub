@@ -17,7 +17,6 @@ class EntriesController < ApplicationController
         end
     end
 
-
     def show
         @entry = Entry.joins(:project).joins(:employee).find(params[:id])
     end
