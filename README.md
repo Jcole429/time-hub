@@ -5,7 +5,7 @@ To see a live version of this web app deployed on Heroku visit:
 [gm-time-hub.herokuapp.com](https://gm-time-hub.herokuapp.com/)
 # General
 * **Build Enviornment**: macOS Big Sur
-* **Database**: Postgres
+* **Database**: PostgreSQL
 * **Framework**: Ruby on Rails
 
 # Dependencies
