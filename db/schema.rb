@@ -15,16 +15,23 @@ ActiveRecord::Schema.define(version: 2021_03_25_192523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "employees", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "entries", force: :cascade do |t|
     t.bigint "project_id"
+    t.bigint "employee_id"
     t.date "date"
     t.decimal "hours", precision: 10, scale: 2
     t.boolean "billable"
-    t.string "first_name"
-    t.string "last_name"
     t.integer "billable_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_entries_on_employee_id"
     t.index ["project_id"], name: "index_entries_on_project_id"
   end
 
@@ -36,5 +43,6 @@ ActiveRecord::Schema.define(version: 2021_03_25_192523) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "entries", "employees"
   add_foreign_key "entries", "projects"
 end
