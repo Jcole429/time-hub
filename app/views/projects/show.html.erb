@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mb-5">
     <div class="col">
         <h5>
             <%= "Project: #{@project.project}" %>
@@ -9,6 +9,20 @@
         <h5>
             <%= "Project Code: #{@project.project_code}" %>
         </h5>
+    </div>
+</div>
+<div class="row mb-5">
+    <div class="col">
+        <h6>Hours Tracked</h6>
+        <h2>
+            <%= ProjectsHelper.get_total_hours_tracked(@entries) %>
+        </h2>
+    </div>
+    <div class="col text-end">
+        <H6 class="" style="padding-right: 2rem;">Billable Amount</H6>
+        <h2>
+            <%= number_to_currency(ProjectsHelper.get_total_billable_amount(@entries)) %>
+        </h2>
     </div>
 </div>
 <div class="row">

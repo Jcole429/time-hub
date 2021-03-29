@@ -2,13 +2,13 @@
     <div class="col">
         <h6>Hours Tracked</h6>
         <h2>
-            <%= get_total_hours_tracked(@projects) %>
+            <%= SummaryHelper.get_total_hours_tracked(@projects) %>
         </h2>
     </div>
     <div class="col text-end">
         <H6 class="" style="padding-right: 2rem;">Billable Amount</H6>
         <h2>
-            <%= number_to_currency(get_total_billable_amount(@projects)) %>
+            <%= number_to_currency(SummaryHelper.get_total_billable_amount(@projects)) %>
         </h2>
     </div>
 </div>
