@@ -1,50 +1,50 @@
 <div class="row mb-1">
-    <div class="col">
-        <h3>All Entries</h3>
-    </div>
+  <div class="col">
+    <h3>All Entries</h3>
+  </div>
 </div>
 <div class="row">
-    <div class="col">
-        <%= link_to '<button type="button" class="btn btn-secondary">Add Entry</button>'.html_safe, new_entry_path %>
-    </div>
+  <div class="col">
+    <%= link_to '<button type="button" class="btn btn-secondary">Add Entry</button>'.html_safe, new_entry_path %>
+  </div>
 </div>
 <div class="row">
-    <div class="col">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th style="background-color:lightgray">Date</th>
-                    <th style="background-color:lightgray">Project Code</th>
-                    <th class="text-end" style="background-color:lightgray">Hours</th>
-                    <th style="background-color:lightgray">Billable</th>
-                    <th style="background-color:lightgray">Employee</th>
-                    <th class="text-end" style="background-color:lightgray">Billable Rate</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @entries.each do |entry| %>
-                    <tr>
-                        <td>
-                            <%= entry.date %>
-                        </td>
-                        <td>
-                            <%= link_to entry.project.project_code, project_path(entry.project) %>
-                        </td>
-                        <td class="text-end">
-                            <%= entry.hours %>
-                        </td>
-                        <td>
-                            <%= entry.billable %>
-                        </td>
-                        <td>
-                            <%= link_to entry.employee.last_name_first_name, employee_path(entry.employee) %>
-                        </td>
-                        <td class="text-end">
-                            <%= number_to_currency(entry.billable_rate) %>
-                        </td>
-                    </tr>
-                    <% end %>
-            </tbody>
-        </table>
-    </div>
+  <div class="col">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th style="background-color:lightgray">Date</th>
+          <th style="background-color:lightgray">Project Code</th>
+          <th class="text-end" style="background-color:lightgray">Hours</th>
+          <th style="background-color:lightgray">Billable</th>
+          <th style="background-color:lightgray">Employee</th>
+          <th class="text-end" style="background-color:lightgray">Billable Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @entries.each do |entry| %>
+          <tr>
+            <td>
+              <%= entry.date %>
+            </td>
+            <td>
+              <%= link_to entry.project.project_code, project_path(entry.project) %>
+            </td>
+            <td class="text-end">
+              <%= entry.hours %>
+            </td>
+            <td>
+              <%= entry.billable %>
+            </td>
+            <td>
+              <%= link_to entry.employee.last_name_first_name, employee_path(entry.employee) %>
+            </td>
+            <td class="text-end">
+              <%= number_to_currency(entry.billable_rate) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

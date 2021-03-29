@@ -1,36 +1,36 @@
 <h1>Create new entry</h1>
 <%= form_with model: @entry do |form| %>
-    <div>
-        <%= form.label :project_id %><br>
-        <%= form.collection_select :project_id, Project.order(:project_code), :id, :project_code_with_name, include_blank: true %>
-        <%= content_tag :span, @entry.errors[:project_id], class: "error" if @entry.errors[:project_id].present? %>
-    </div>
-    <div>
-        <%= form.label :date %><br>
-        <%= form.date_field :date, value: Date.today %>
-        <%= content_tag :span, @entry.errors[:date], class: "error" if @entry.errors[:date].present? %>
-    </div>
-    <div>
-        <%= form.label :hours %><br>
-        <%= form.number_field :hours, value: 1, min:1, max:24 %>
-        <%= content_tag :span, @entry.errors[:hours], class: "error" if @entry.errors[:hours].present? %>
-    </div>
-    <div>
-        <%= form.label :billable %><br>
-        <%= form.check_box :billable %>
-        <%= content_tag :span, @entry.errors[:billable], class: "error" if @entry.errors[:billable].present? %>
-    </div>
-    <div>
-        <%= form.label :employee_id %><br>
-        <%= form.collection_select :employee_id, Employee.order(:last_name), :id, :last_name_first_name, include_blank: true %>
-        <%= content_tag :span, @entry.errors[:employee_id], class: "error" if @entry.errors[:employee_id].present? %>
-    </div>
-    <div>
-        <%= form.label :billable_rate %><br>
-        <%= form.number_field :billable_rate, min: 0 %>
-        <%= content_tag :span, @entry.errors[:billable_rate], class: "error" if @entry.errors[:billable_rate].present? %>
-    </div>
-    <div>
-        <%= form.submit %>
-    </div>
-    <% end %>
+  <div>
+    <%= form.label :project_id %><br>
+    <%= form.collection_select :project_id, Project.order(:project_code), :id, :project_code_with_name, include_blank: true %>
+    <%= content_tag :span, @entry.errors[:project_id], class: "error" if @entry.errors[:project_id].present? %>
+  </div>
+  <div>
+    <%= form.label :date %><br>
+    <%= form.date_field :date, value: Date.today %>
+    <%= content_tag :span, @entry.errors[:date], class: "error" if @entry.errors[:date].present? %>
+  </div>
+  <div>
+    <%= form.label :hours %><br>
+    <%= form.number_field :hours, value: 1, min:1, max:24 %>
+    <%= content_tag :span, @entry.errors[:hours], class: "error" if @entry.errors[:hours].present? %>
+  </div>
+  <div>
+    <%= form.label :billable %><br>
+    <%= form.check_box :billable %>
+    <%= content_tag :span, @entry.errors[:billable], class: "error" if @entry.errors[:billable].present? %>
+  </div>
+  <div>
+    <%= form.label :employee_id %><br>
+    <%= form.collection_select :employee_id, Employee.order(:last_name), :id, :last_name_first_name, include_blank: true %>
+    <%= content_tag :span, @entry.errors[:employee_id], class: "error" if @entry.errors[:employee_id].present? %>
+  </div>
+  <div>
+    <%= form.label :billable_rate %><br>
+    <%= form.number_field :billable_rate, min: 0 %>
+    <%= content_tag :span, @entry.errors[:billable_rate], class: "error" if @entry.errors[:billable_rate].present? %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

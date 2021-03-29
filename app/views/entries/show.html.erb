@@ -1,28 +1,28 @@
 <div class="row">
-    <div class="col">
-        <h5>
-            <%= "Date: #{@entry.date}" %>
-        </h5>
-        <h5>
-            <%= "Project: #{@entry.project.project}" %>
-        </h5>
-        <h5>
-            <%= "Project Code: #{@entry.project.project_code}" %>
-        </h5>
-        <h5>
-            <%= "First Name: #{@entry.employee.first_name}" %>
-        </h5>
-        <h5>
-            <%= "Last Name: #{@entry.employee.last_name}" %>
-        </h5>
-        <h5>
-            <%= "Hours: #{@entry.hours}" %>
-        </h5>
-        <h5>
-            <%= "Billable?: #{@entry.billable}" %>
-        </h5>
-        <h5>
-            <%= "Billable Rate: #{number_to_currency(@entry.billable_rate)}" %>
-        </h5>
-    </div>
+  <div class="col">
+    <h5>
+      <%= "Date: #{@entry.date}" %>
+    </h5>
+    <h5>
+      <%= "Project: #{@entry.project.project}" %>
+    </h5>
+    <h5>
+      <%= "Project Code: #{@entry.project.project_code}" %>
+    </h5>
+    <h5>
+      <%= "First Name: #{@entry.employee.first_name}" %>
+    </h5>
+    <h5>
+      <%= "Last Name: #{@entry.employee.last_name}" %>
+    </h5>
+    <h5>
+      <%= "Hours: #{@entry.hours}" %>
+    </h5>
+    <h5>
+      <%= "Billable?: #{@entry.billable}" %>
+    </h5>
+    <h5>
+      <%= "Billable Rate: #{number_to_currency(@entry.billable_rate)}" %>
+    </h5>
+  </div>
 </div>

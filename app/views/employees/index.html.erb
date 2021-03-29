@@ -1,42 +1,42 @@
 <div class="row mb-1">
-    <div class="col">
-        <h3>All Employees</h3>
-    </div>
+  <div class="col">
+    <h3>All Employees</h3>
+  </div>
 </div>
 <div class="row">
-    <div class="col">
-        <%= link_to '<button type="button" class="btn btn-secondary">Add Employee</button>'.html_safe, new_employee_path %>
-    </div>
+  <div class="col">
+    <%= link_to '<button type="button" class="btn btn-secondary">Add Employee</button>'.html_safe, new_employee_path %>
+  </div>
 </div>
 <div class="row">
-    <div class="col">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th style="background-color:lightgray">Employee ID</th>
-                    <th style="background-color:lightgray">Employee</th>
-                    <th style="background-color:lightgray">First Name</th>
-                    <th style="background-color:lightgray">Last Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @employees.each do |employee| %>
-                    <tr>
-                        <td>
-                            <%= employee.id %>
-                        </td>
-                        <td>
-                            <%= link_to employee.last_name_first_name, employee_path(employee) %>
-                        </td>
-                        <td>
-                            <%= employee.first_name %>
-                        </td>
-                        <td>
-                            <%= employee.last_name %>
-                        </td>
-                    </tr>
-                    <% end %>
-            </tbody>
-        </table>
-    </div>
+  <div class="col">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th style="background-color:lightgray">Employee ID</th>
+          <th style="background-color:lightgray">Employee</th>
+          <th style="background-color:lightgray">First Name</th>
+          <th style="background-color:lightgray">Last Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @employees.each do |employee| %>
+          <tr>
+            <td>
+              <%= employee.id %>
+            </td>
+            <td>
+              <%= link_to employee.last_name_first_name, employee_path(employee) %>
+            </td>
+            <td>
+              <%= employee.first_name %>
+            </td>
+            <td>
+              <%= employee.last_name %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

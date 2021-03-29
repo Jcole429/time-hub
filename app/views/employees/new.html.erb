@@ -1,17 +1,16 @@
 <h1>Create new employee</h1>
 <%= form_with model: @employee do |form| %>
-    <div>
-        <%= form.label :first_name %><br>
-        <%= form.text_field :first_name %>
-        <%= content_tag :span, @employee.errors[:first_name], class: "error" if @employee.errors[:first_name].present? %>
-    </div>
-
-    <div>
-        <%= form.label :last_name %><br>
-        <%= form.text_field :last_name %>
-        <%= content_tag :span, @employee.errors[:last_name], class: "error" if @employee.errors[:last_name].present? %>
-    </div>
-    <div>
-        <%= form.submit %>
-    </div>
-    <% end %>
+  <div>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %>
+    <%= content_tag :span, @employee.errors[:first_name], class: "error" if @employee.errors[:first_name].present? %>
+  </div>
+  <div>
+    <%= form.label :last_name %><br>
+    <%= form.text_field :last_name %>
+    <%= content_tag :span, @employee.errors[:last_name], class: "error" if @employee.errors[:last_name].present? %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
